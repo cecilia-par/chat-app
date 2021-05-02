@@ -40,7 +40,7 @@ Pour la résoudre :
 - [socket.io-client](https://socket.io/docs/v3/client-api/index.html) - Temps réel (Client)
 - [socket.io](https://socket.io/) - Temps réel (Serveur)
 - [material-design-icons](https://materialdesignicons.com/) - Icons
-- [Visual Studio Code](https://code.visualstudio.com/download) - Editeur de textes npm-run-all
+- [Visual Studio Code](https://code.visualstudio.com/download) - Editeur de textes
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all) - Lancement du front et back en parallèle avec juste un npm start
 
 ## Test
@@ -59,7 +59,7 @@ Pour la résoudre :
 
 Couverture actuelle :
 
-![](images/coverage.png)
+![](images/coverage.jpg)
 
 ## Versions
 
