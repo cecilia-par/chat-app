@@ -1,0 +1,69 @@
+<div class="background-wrapper" id="main">
+  <main class="chat-main-wrapper">
+    <div class="chat-header">
+      <div class="chat-header-contact-master">
+        <div class="chat-header-contact-name">
+          Chat
+          <div class="chat-header-contact-connection-display">Online</div>
+        </div>
+      </div>
+      <span
+        class="material-icons md-36 md-light"
+        id="logout"
+        (click)="logout()"
+      >
+        disabled_by_default
+      </span>
+    </div>
+    <div #containerChat class="chat-conversation-wrapper" id="chat-wrapper">
+      <div *ngFor="let message of messages; let i = index">
+        <ng-container
+          *ngIf="message?.user?.id !== user?.id; then isContact; else isMe"
+        >
+        </ng-container>
+        <ng-template #isContact>
+          <div class="contact-message-wrapper">
+            <div class="contact-message-box-name">
+              {{ message.user.username }}
+            </div>
+            <div class="contact-message-box">
+              <div class="contact-message-box-p">
+                {{ message.message }}
+              </div>
+            </div>
+            <div class="contact-message-box-time">
+              {{ message.time | date: "yyyy-MM-dd HH:mm:ss" }}
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #isMe>
+          <div class="message-wrapper">
+            <div class="message-box-name">{{ message.user?.username }}</div>
+            <div class="message-box">
+              <div class="message-box-p">
+                {{ message.message }}
+              </div>
+            </div>
+            <div class="contact-message-box-time">
+              {{ message.time | date: "yyyy-MM-dd HH:mm:ss" }}
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="chat-user-message-wrapper">
+      <div class="chat-user-message-form-wrapper">
+        <input
+          type="text"
+          [(ngModel)]="message"
+          id="user-message-form"
+          (keyup)="$event.keyCode == 13 && sendMessage()"
+          placeholder="Type your message..."
+        />
+      </div>
+      <span class="material-icons" id="send-message" (click)="sendMessage()">
+        send
+      </span>
+    </div>
+  </main>
+</div>
